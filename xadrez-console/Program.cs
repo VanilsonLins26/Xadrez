@@ -6,6 +6,7 @@ using xadrez_console;
 
 
 
+
 try
 {
     PartidaDeXadrez partida = new PartidaDeXadrez();
@@ -19,11 +20,18 @@ try
 
         Console.Write("Origem: ");
         Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+
+        bool[,] posicoesPossiveis = partida.tab.Peca(origem).MovimentosPossiveis();
+
+        Console.Clear();
+        Tela.ImprimirTabuleiro(partida.tab, posicoesPossiveis);
+
         Console.Write("Destino: ");
         Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
 
         partida.ExecutaMovimento(origem, destino);
     }
+    
 
 }
 catch(TabuleiroException e)
