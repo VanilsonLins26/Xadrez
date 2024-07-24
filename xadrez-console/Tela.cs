@@ -21,7 +21,7 @@ namespace xadrez_console
                     
 
                 }
-                Console.WriteLine();
+                Console.WriteLine(); 
             }
             
 

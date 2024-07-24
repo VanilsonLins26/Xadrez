@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,6 +25,29 @@ namespace tabuleiro
         public void IncrementarQteMovimentos()
         {
             QteMovimentos++;
+        }
+
+        public bool ExisteMovimentosPossiveis()
+        {
+            bool[,] mat = MovimentosPossiveis();
+            for(int i=0; i<Tab.Linhas; i++)
+            {
+                for(int j=0;  j<Tab.Linhas; j++)
+                {
+                    if (mat[i, j])
+                    {
+                        return true;
+                    }
+                  
+                    }
+                }
+            return false;
+            }
+        
+    
+        public bool PodeMoverPara(Posicao pos)
+        {
+            return MovimentosPossiveis()[pos.Linha, pos.Coluna];
         }
 
         public abstract bool[,] MovimentosPossiveis();
