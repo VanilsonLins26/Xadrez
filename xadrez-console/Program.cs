@@ -44,6 +44,8 @@ try
         }
 
         }
+    Console.Clear();
+    Tela.ImprimirPartida(partida);
     
 
 }
